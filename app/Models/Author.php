@@ -18,7 +18,13 @@ class Author extends Model
     }
 
     // Create items
-    public function createItem(){
-        return $this->limit(20)->push();
+    public function createItem($name, $slug){
+        // bill-bryson-author
+        // $data = ['name' => $name, 'slug' => $slug];
+        $this->name = $name;
+        $this->slug = $slug;
+        return $this->save();
     }   
+
+
 }

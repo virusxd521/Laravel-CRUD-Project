@@ -1,9 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Models\Book;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
 
 class BookController extends Controller
 {
@@ -14,6 +16,10 @@ class BookController extends Controller
      */
     public function index()
     {
+        $book = new Book;
+        return view('layouts.list', ['books' => 
+        $book->indexBooks()]);
+
         //
     }
 
@@ -25,6 +31,7 @@ class BookController extends Controller
     public function create()
     {
         //
+        return view('layouts.create');
     }
 
     /**
@@ -35,6 +42,10 @@ class BookController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request->all()['title']);
+        $book = new Book;
+        $data = $request->all();
+        return view('layouts.alertAdded', ['result' => $book->createBook($data['title'], $data['pages'], $data['slug'] )] );
         //
     }
 
