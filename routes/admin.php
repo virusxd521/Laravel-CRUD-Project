@@ -20,4 +20,6 @@ Route::get('/admin/books', [BookController::class, 'index']);
 
 Route::get('/admin/books/create', [BookController::class, 'create'])->name('book.create');
 
-Route::post('admin/books', [BookController::class, 'store'])->name('book.store');
+Route::post('/admin/books', [BookController::class, 'store'])->name('book.store');
+
+Route::put('/admin/books/{book_id}', [BookController::class, 'update'])->name('book.edit');

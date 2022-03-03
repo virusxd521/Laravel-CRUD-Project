@@ -66,7 +66,7 @@ class BookController extends Controller
      * @param  \App\Models\Book  $book
      * @return \Illuminate\Http\Response
      */
-    public function edit(Book $book)
+    public function edit($book_id)
     {
         //
     }
@@ -81,6 +81,13 @@ class BookController extends Controller
     public function update(Request $request, Book $book)
     {
         //
+        // Todo
+        $book = new Book;
+        $title = $request->title;
+        $slug = $request->slug;
+        $id = $request->book_id;
+        $book->editBook($title, $slug, $id);
+        
     }
 
     /**

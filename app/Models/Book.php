@@ -22,4 +22,19 @@ class Book extends Model
         return $this->save();
     }
 
+
+    public function editBook($title, $slug, $id){
+        // $update = $this::where($this->id, '=', $id)->get();
+        
+        // return $update;
+        // $this->title = $title;
+        // $this->slug = $slug;
+        // dd($slug);
+        $data = ['title' => $title, 'slug' => $slug];
+        $this::where('id', '=', $id)
+            ->update($data);
+        dd($this::where('id', '=', $id)->get());
+        
+    }
+
 }
